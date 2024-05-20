@@ -19,11 +19,11 @@ apply plugin: 'kotlin-android'
 android {
     namespace 'androidx.media3.demo.main'
 
-    compileSdkVersion project.ext.compileSdkVersion
+    compileSdk project.ext.compileSdkVersion
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
 
     defaultConfig {

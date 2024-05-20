@@ -6,3 +6,5 @@ other applications that make use of the ExoPlayer library.
 
 See the [demos README](../README.md) for instructions on how to build and run
 this demo.
+
+https://blog.csdn.net/cmder1000/article/details/108047661

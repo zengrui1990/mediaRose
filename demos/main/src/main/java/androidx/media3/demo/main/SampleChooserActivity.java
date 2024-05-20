@@ -20,16 +20,19 @@ import static com.google.common.base.Preconditions.checkNotNull;
 import static com.google.common.base.Preconditions.checkState;
 
 import android.Manifest;
+import android.content.ContentUris;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.res.AssetManager;
+import android.database.Cursor;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.provider.MediaStore;
 import android.text.TextUtils;
 import android.util.JsonReader;
 import android.view.Menu;
@@ -131,6 +134,7 @@ public class SampleChooserActivity extends AppCompatActivity
     loadSample();
     startDownloadService();
   }
+
 
   /** Start the download service if it should be running but it's not currently. */
   @OptIn(markerClass = androidx.media3.common.util.UnstableApi.class)
@@ -369,6 +373,7 @@ public class SampleChooserActivity extends AppCompatActivity
       group.playlists.addAll(playlistHolders);
     }
 
+
     private PlaylistHolder readEntry(JsonReader reader, boolean insidePlaylist) throws IOException {
       Uri uri = null;
       String extension = null;
@@ -396,6 +401,13 @@ public class SampleChooserActivity extends AppCompatActivity
             break;
           case "uri":
             uri = Uri.parse(reader.nextString());
+            android.util.Log.e(TAG, "readEntry: dddddd 11 url="+uri );
+            List<MediaStoreUtil.Video> videoUrls = MediaStoreUtil.INSTANCE.getVideoList(getApplicationContext());
+            if (videoUrls.size() > 0){
+              uri = Uri.parse(videoUrls.get(0).getUri().toString());
+            }
+
+            android.util.Log.e(TAG, "readEntry: dddddd url="+uri );
             break;
           case "extension":
             extension = reader.nextString();
