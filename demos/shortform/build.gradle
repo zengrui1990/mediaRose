@@ -79,9 +79,9 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
 
     implementation 'androidx.core:core-ktx:' + androidxCoreVersion
-    implementation 'androidx.appcompat:appcompat:' + androidxAppCompatVersion
+    implementation libs.androidx.appcompat
+    implementation libs.google.material
     implementation 'androidx.multidex:multidex:' + androidxMultidexVersion
-    implementation 'com.google.android.material:material:' + androidxMaterialVersion
     implementation project(modulePrefix + 'lib-exoplayer')
     implementation project(modulePrefix + 'lib-exoplayer-dash')
     implementation project(modulePrefix + 'lib-exoplayer-hls')

@@ -1,0 +1,236 @@
+#使用指南 https://docs.gradle.org/current/userguide/platforms.html
+[versions]
+kotlin = "1.7.22"
+androidx-activity = "1.6.1"
+androidx-lifecycle = "2.5.1"
+androidx-room = "2.5.0"
+coroutines = "1.6.4"
+okhttp = "4.10.0"
+okio = "3.2.0"
+r8 = "8.2.33"
+
+
+
+[libraries]
+#androidx
+androidx-activity = { module = "androidx.activity:activity-ktx", version.ref = "androidx-activity" }
+androidx-appcompat = "androidx.appcompat:appcompat:1.6.1"
+androidx-annotation = "androidx.annotation:annotation:1.3.0"
+androidx-asynclayoutinflater = "androidx.asynclayoutinflater:asynclayoutinflater:1.0.0"
+androidx-cardview = "androidx.cardview:cardview:1.0.0"
+androidx-constraintlayout = "androidx.constraintlayout:constraintlayout:2.1.3"
+androidx-core = "androidx.core:core-ktx:1.12.0"
+androidx-datastore-preferences = "androidx.datastore:datastore-preferences:1.0.0"
+androidx-dynamicanimation = "androidx.dynamicanimation:dynamicanimation:1.0.0"
+androidx-emoji2-core = "androidx.emoji2:emoji2:1.2.0"
+androidx-emoji2-views-core = "androidx.emoji2:emoji2-views:1.2.0"
+androidx-emoji2-views-helper = "androidx.emoji2:emoji2-views:1.2.0"
+androidx-fragment-fragment = "androidx.fragment:fragment:1.4.0"
+androidx-fragment-fragmentKtx = "androidx.fragment:fragment-ktx:1.4.0"
+androidx-fragment-testing = "androidx.fragment:fragment-testing:1.4.0"
+androidx-recyclerview-recyclerview = "androidx.recyclerview:recyclerview:1.2.1"
+androidx-recyclerview-selection = "androidx.recyclerview:recyclerview-selection:1.1.0"
+androidx-palette = "androidx.palette:palette-ktx:1.0.0"
+androidx-preference = "androidx.preference:preference-ktx:1.2.0"
+androidx-paging-runtime = "androidx.paging:paging-runtime:3.1.1"
+androidx-paging-rxjava3 = "androidx.paging:paging-rxjava3:3.1.1"
+androidx-lifecycle-runtime = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "androidx-lifecycle" }
+androidx-lifecycle-livedata = { module = "androidx.lifecycle:lifecycle-livedata-ktx", version.ref = "androidx-lifecycle" }
+androidx-lifecycle-viewmodel = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "androidx-lifecycle" }
+androidx-navigation-fragment = "androidx.navigation:navigation-fragment-ktx:2.4.1"
+androidx-navigation-ui = "androidx.navigation:navigation-ui-ktx:2.4.1"
+androidx-navigation-runtime = "androidx.navigation:navigation-runtime:2.4.1"
+androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "androidx-room" }
+androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "androidx-room" }
+androidx-room-ktx = { module = "androidx.room:room-ktx", version.ref = "androidx-room" }
+androidx-room-rxjava2 = { module = "androidx.room:room-rxjava2", version.ref = "androidx-room" }
+androidx-room-rxjava3 = { module = "androidx.room:room-rxjava3", version.ref = "androidx-room" }
+androidx-slice-view = "androidx.slice:slice-view:1.0.0"
+androidx-startup-runtime = "androidx.startup:startup-runtime:1.1.1"
+androidx-swiperefreshlayout = "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
+androidx-viewpager2 = "androidx.viewpager2:viewpager2:1.0.0"
+androidx-window = "androidx.window:window:1.0.0"
+androidx-work-runtime = "androidx.work:work-runtime-ktx:2.8.0"
+
+#kotlin
+coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "coroutines" }
+coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "coroutines" }
+
+#google
+google-material = "com.google.android.material:material:1.8.0"
+google-protobuf-javalite = "com.google.protobuf:protobuf-javalite:3.21.1"
+google-auto-service = "com.google.auto.service:auto-service:1.0.1"
+google-auto-serviceannotations = "com.google.auto.service:auto-service-annotations:1.0.1"
+google-findbugs = "com.google.code.findbugs:annotations:3.0.0"
+google-gson = "com.google.code.gson:gson:2.8.5"
+google-zxing = "com.google.zxing:core:3.5.3"
+google-flexbox = "com.google.android.flexbox:flexbox:3.0.0"
+
+#reactivex
+r8 = { module = "com.android.tools:r8", version.ref = "r8" }
+reactivex-rxjava3 = "io.reactivex.rxjava3:rxjava:3.1.5"
+reactivex-rxandroid3 = "io.reactivex.rxjava3:rxandroid:3.0.2"
+
+#freeme
+freemelite-viewbindingKtx = "com.freeme.lite:viewbinding-ktx:0.0.2"
+freemelite-blurwallpaper = "com.freeme.blurwallpaper:blurwallpaper:1.0.5-SNAPSHOT"
+
+freemelite-update-core = 'com.freeme.updateself:update-core:30.9.25'
+okdownload = "com.freeme.updateself:okdownload-core:30.9.0"
+
+freemelite-oaid-helper = "com.freeme.lite:oaid-helper:2.2.0.2"
+freemelite-encrypt = "com.freeme.lite:encrypt:0.0.2.3"
+freeme-remotepush = "com.freeme.remotepush:remotepush:1.0.1-SNAPSHOT"
+freeme-teenagersmode = "com.freeme.healthcontrol:external:1.1.2-SNAPSHOT"
+zhuoyi-zhuoyianalytics = "com.zhuoyi.sdk:analytics:1.0.6"
+
+#square
+square-okhttp3-okhttp = "com.squareup.okhttp3:okhttp:4.10.0"
+square-okhttp3-logging-interceptor = "com.squareup.okhttp3:logging-interceptor:4.10.0"
+square-retrofit2-retrofit = "com.squareup.retrofit2:retrofit:2.9.0"
+square-retrofit2-converter-gson = "com.squareup.retrofit2:converter-gson:2.9.0"
+square-retrofit-mock = "com.squareup.retrofit2:retrofit-mock:2.9.0"
+square-leakcanary = "com.squareup.leakcanary:leakcanary-android:2.10"
+
+
+#umeng
+umeng-common = "com.umeng.umsdk:common:9.6.2"
+umeng-asms = "com.umeng.umsdk:asms:1.8.0"
+umeng-apm = "com.umeng.umsdk:apm:1.9.2"
+umeng-union = "com.umeng.umsdk:union:1.4.1"
+
+#youliao
+youliao-news = "com.youliao.sdk:news:1.2.5-beta02"
+youliao-amaplocation = "com.youliao.sdk:amaplocation:1.2.0"
+youliao-glide = "com.youliao.sdk:glide4:1.2.0"
+
+#上拉加载、下拉刷新
+smartrefresh-kernel = "io.github.scwang90:refresh-layout-kernel:2.0.5"
+smartrefresh-header-classics = "io.github.scwang90:refresh-header-classics:2.0.5"
+smartrefresh-header-material = "io.github.scwang90:refresh-header-material:2.0.5"
+smartrefresh-footer-classics = "io.github.scwang90:refresh-footer-classics:2.0.5"
+
+
+#GroMore_sdk
+gromore_sdk = "com.gromore.cn:gromore-sdk:3.9.0.0"
+gromore-gdt-adapter = "com.gromore.cn:gdt-adapter:4.492.1362.1"
+gromore-baidu-adapter = "com.gromore.cn:baidu-adapter:9.241.4"
+gromore-pangle-adapter = "com.gromore.cn:pangle-adapter:4.9.0.8.1"
+gromore-test-tools = "com.gromore.cn:gromore-test-tools:3.9.0.0"
+
+#HMS
+hms-agcp_plugin = "com.huawei.agconnect:agcp:1.5.2.300"
+hms-ads = "com.huawei.hms:ads:3.4.45.302"
+hms-ads_lite = "com.huawei.hms:ads-lite:13.4.35.300"
+hms-ads_consent = "com.huawei.hms:ads-consent:3.4.35.300"
+hms-hianalytics = "com.huawei.hms:hianalytics:5.3.0.300"
+
+#其他
+glide = "com.github.bumptech.glide:glide:4.12.0"
+airbnb-lottie = "com.airbnb.android:lottie:3.3.0"
+utilcodex = "com.blankj:utilcodex:1.31.1"
+svga = "com.github.svga:SVGAPlayer-Android:2.5.11"
+guideview = "com.binioter:guideview:1.0.0"
+alicloud-feedback = "com.aliyun.ams:alicloud-android-feedback:3.4.2"
+magicIndicator = "com.github.hackware1993:MagicIndicator:1.7.0"
+brvah = "com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.30"
+androidGifDrawable = "pl.droidsonroids.gif:android-gif-drawable:1.2.23"
+androidAutoSize = "com.github.JessYanCoding:AndroidAutoSize:v1.2.1"
+kprogresshud = "com.kaopiz:kprogresshud:1.1.0"
+banner = "com.youth.banner:banner:1.4.10"
+rxlifecycle = "com.trello.rxlifecycle2:rxlifecycle-android:2.1.0"
+androidDownloader = "com.ixuea:AndroidDownloader:3.0.0"
+wechat = "com.tencent.mm.opensdk:wechat-sdk-android-without-mta:6.6.4"
+xxPermissions = "com.github.getActivity:XXPermissions:11.5"
+permissionx = "com.freeme.permissionx:permissionx:1.2.0"
+shapeView = "com.github.getActivity:ShapeView:8.3"
+once = "com.jonathanfinerty.once:once:1.0.3"
+netty-all = "io.netty:netty-all:4.1.9.Final"
+eventbus = "org.greenrobot:eventbus:3.3.1"
+circleprogressbar = "com.dinuscxj:circleprogressbar:1.3.6"
+photoView = "com.github.chrisbanes:PhotoView:2.3.0"
+addressPicker = "com.github.gzu-liyujiang.AndroidPicker:AddressPicker:4.1.11"
+wheelPicker = "com.github.gzu-liyujiang.AndroidPicker:WheelPicker:4.1.11"
+dialogX = "com.github.kongzue.DialogX:DialogX:0.0.45.beta12"
+dialogXIOSStyle = "com.github.kongzue.DialogX:DialogXIOSStyle:0.0.45"
+
+imageCropper = "com.theartofdev.edmodo:android-image-cropper:2.8.0"
+
+exo-core = "com.google.android.exoplayer:exoplayer-core:2.18.0"
+exo-ui = "com.google.android.exoplayer:exoplayer-ui:2.18.0"
+exo-mediasession = "com.google.android.exoplayer:extension-mediasession:2.18.0"
+[bundles]
+androidx = [
+    "androidx-activity",
+    "androidx-appcompat",
+    "androidx-annotation",
+    "androidx-asynclayoutinflater",
+    "androidx-cardview",
+    "androidx-constraintlayout",
+    "androidx-core",
+    "androidx-datastore-preferences",
+    "androidx-dynamicanimation",
+    "androidx-recyclerview-recyclerview",
+    "androidx-recyclerview-selection",
+    "androidx-preference",
+    "androidx-lifecycle-runtime",
+    "androidx-lifecycle-livedata",
+    "androidx-lifecycle-viewmodel",
+    "androidx-navigation-fragment",
+    "androidx-navigation-ui",
+    "androidx-navigation-runtime",
+    "androidx-room-runtime",
+    #    "androidx-room-compiler",
+    "androidx-room-ktx",
+    "androidx-room-rxjava2",
+    "androidx-room-rxjava3",
+    "androidx-slice-view",
+    "androidx-startup-runtime",
+    "androidx-viewpager2",
+    "androidx-window",
+    "androidx-work-runtime"
+]
+
+freeme = [
+    "freemelite-update-core",
+    "freemelite-oaid-helper",
+    "freemelite-encrypt",
+    "freeme-remotepush",
+    "freeme-teenagersmode",
+    "zhuoyi-zhuoyianalytics"
+]
+uemng = [
+    "umeng-common",
+    "umeng-asms",
+    "umeng-apm",
+    "umeng-union"
+]
+youliao = [
+    "youliao-news",
+    "youliao-amaplocation",
+    "youliao-glide",
+]
+gromore = [
+    "gromore_sdk",
+    "gromore-gdt-adapter",
+    "gromore-baidu-adapter",
+    "gromore-pangle-adapter",
+    "gromore-test-tools"
+]
+smartrefresh = [
+    "smartrefresh-kernel",
+    "smartrefresh-header-classics",
+    "smartrefresh-header-material",
+    "smartrefresh-footer-classics",
+]
+retrofit = [
+    "square-retrofit2-retrofit",
+    "square-retrofit2-converter-gson",
+    "square-retrofit-mock"
+]
+
+exo = [
+    "exo-core",
+    "exo-ui",
+    "exo-mediasession",
+]

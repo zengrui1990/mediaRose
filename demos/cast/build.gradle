@@ -61,10 +61,10 @@ dependencies {
     implementation project(modulePrefix + 'lib-exoplayer-smoothstreaming')
     implementation project(modulePrefix + 'lib-ui')
     implementation project(modulePrefix + 'lib-cast')
-    implementation 'androidx.appcompat:appcompat:' + androidxAppCompatVersion
+    implementation libs.androidx.appcompat
+    implementation libs.google.material
     implementation 'androidx.multidex:multidex:' + androidxMultidexVersion
     implementation 'androidx.recyclerview:recyclerview:' + androidxRecyclerViewVersion
-    implementation 'com.google.android.material:material:' + androidxMaterialVersion
 }
 
 apply plugin: 'com.google.android.gms.strict-version-matcher-plugin'

@@ -62,7 +62,13 @@
       android:name="androidx.multidex.MultiDexApplication"
       tools:targetApi="29">
 
-    <activity android:name="androidx.media3.demo.sweety.MainActivity"
+    <activity
+      android:exported="true"
+      android:label="@string/sweety_name"
+      android:name="androidx.media3.demo.sweety.MainActivity"
+      android:theme="@style/Theme.AppCompat"/>
+
+    <activity android:name="androidx.media3.demo.sweety.MainActivity2"
       android:configChanges="keyboardHidden"
       android:label="@string/sweety_name"
       android:theme="@style/Theme.AppCompat"

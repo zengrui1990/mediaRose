@@ -59,9 +59,9 @@ android {
 
 dependencies {
     implementation 'androidx.core:core-ktx:' + androidxCoreVersion
-    implementation 'androidx.appcompat:appcompat:' + androidxAppCompatVersion
+    implementation libs.androidx.appcompat
+    implementation libs.google.material
     implementation 'androidx.multidex:multidex:' + androidxMultidexVersion
-    implementation 'com.google.android.material:material:' + androidxMaterialVersion
     implementation project(modulePrefix + 'lib-session')
     implementation project(modulePrefix + 'demo-session-service')
 }

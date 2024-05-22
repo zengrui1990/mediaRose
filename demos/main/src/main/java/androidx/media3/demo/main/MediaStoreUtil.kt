@@ -28,6 +28,8 @@ object MediaStoreUtil {
                      val data:String = "",
                      val relativePath:String = "",
                      val mimeType:String = "",
+                     //下面的是应用自定义的
+                     val videoName:String = "",/*动画片的名字*/
 
     )
     fun getVideoList(context: Context):List<Video>{
@@ -103,7 +105,6 @@ object MediaStoreUtil {
                 Video(contentUri, name, duration, size,thumbnail,albums,data,relativePath,mimeType).let {
                     Log.e("dddddd", "getVideoList: Video=$it", )
                     videoList.add(it) }
-                videoList += Video(contentUri, name, duration, size,thumbnail)
             }
         }
         return videoList
