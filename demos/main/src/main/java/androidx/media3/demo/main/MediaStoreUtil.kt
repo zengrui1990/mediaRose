@@ -24,6 +24,11 @@ object MediaStoreUtil {
                      val duration: Int,
                      val size: Int,
                      val thumbnail: Bitmap,
+                     val albums: String = "",
+                     val data:String = "",
+                     val relativePath:String = "",
+                     val mimeType:String = "",
+
     )
     fun getVideoList(context: Context):List<Video>{
         val videoList = mutableListOf<Video>()
@@ -36,29 +41,44 @@ object MediaStoreUtil {
                 MediaStore.Video.Media._ID,
                 MediaStore.Video.Media.DISPLAY_NAME,
                 MediaStore.Video.Media.DURATION,
-                MediaStore.Video.Media.SIZE
+                MediaStore.Video.Media.ALBUM,
+                MediaStore.Video.Media.SIZE,
+                MediaStore.Video.Media.DATA,
+                MediaStore.Video.Media.RELATIVE_PATH,
+                MediaStore.Video.Media.MIME_TYPE,
         )
 
         // Show only videos that are at least 5 minutes in duration.
-        val selection = "${MediaStore.Video.Media.DURATION} >= ?"
-        val selectionArgs = arrayOf(TimeUnit.MILLISECONDS.convert(5, TimeUnit.MINUTES).toString())
+        val selection = "${MediaStore.Video.Media.DURATION} >= ? and ${MediaStore.Video.Media.RELATIVE_PATH} like ?"
+        val selectionArgs = arrayOf(
+            TimeUnit.MILLISECONDS.convert(1, TimeUnit.MINUTES).toString(),
+            "susie%"
+        )
+        Log.e("dddddd", "getVideoList: selectionArgs=$selectionArgs", )
 
         // Display videos in alphabetical order based on their display name.
         val sortOrder = "${MediaStore.Video.Media.DISPLAY_NAME} ASC"
 
         val query = context.contentResolver.query(
                 collection,
-                projection,
+                null/*projection*/,
                 selection,
                 selectionArgs,
                 sortOrder
         )
         query?.use { cursor ->
+            Log.e("dddddd", "getVideoList: cursor=${cursor.count}", )
             // Cache column indices.
             val idColumn = cursor.getColumnIndexOrThrow(MediaStore.Video.Media._ID)
             val nameColumn = cursor.getColumnIndexOrThrow(MediaStore.Video.Media.DISPLAY_NAME)
             val durationColumn = cursor.getColumnIndexOrThrow(MediaStore.Video.Media.DURATION)
             val sizeColumn = cursor.getColumnIndexOrThrow(MediaStore.Video.Media.SIZE)
+            val albumsColumn = cursor.getColumnIndexOrThrow(MediaStore.Video.Media.ALBUM)
+            val dataColumn = cursor.getColumnIndexOrThrow(MediaStore.Video.Media.DATA)
+            val mimeTypeColumn = cursor.getColumnIndexOrThrow(MediaStore.Video.Media.MIME_TYPE)
+            val relativePathColumn = cursor.getColumnIndexOrThrow(MediaStore.Video.Media.RELATIVE_PATH)
+            val AUTHOR = cursor.getColumnIndexOrThrow(MediaStore.Video.Media.AUTHOR)
+
             while (cursor.moveToNext()) {
                 // Get values of columns for a given video.
                 val id = cursor.getLong(idColumn)
@@ -66,15 +86,26 @@ object MediaStoreUtil {
                 val duration = cursor.getInt(durationColumn)
                 val size = cursor.getInt(sizeColumn)
                 val contentUri: Uri = ContentUris.withAppendedId(MediaStore.Video.Media.EXTERNAL_CONTENT_URI, id)
+                val albums = cursor.getString(albumsColumn)
+                val data = cursor.getString(dataColumn)
+                val relativePath = cursor.getString(relativePathColumn)
+                val mimeType = cursor.getString(mimeTypeColumn)
+
                 // Stores column values and the contentUri in a local object
                 // that represents the media file.
-                val thumbnail: Bitmap = context.contentResolver.loadThumbnail(contentUri, Size(640, 480), null)
+                val thumbnail: Bitmap = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                    context.contentResolver.loadThumbnail(contentUri, Size(640, 480), null)
+                } else {
+                    MediaStore.Video.Thumbnails.getThumbnail(context.contentResolver, id, MediaStore.Video.Thumbnails.MINI_KIND, null)
+                }
+                Log.e("dddddd", "getVideoList:AUTHOR ${cursor.getString(AUTHOR)}")
                 extractVideoLocationInfo(context,contentUri)
+                Video(contentUri, name, duration, size,thumbnail,albums,data,relativePath,mimeType).let {
+                    Log.e("dddddd", "getVideoList: Video=$it", )
+                    videoList.add(it) }
                 videoList += Video(contentUri, name, duration, size,thumbnail)
             }
         }
-        val volumeNames: Set<String> = MediaStore.getExternalVolumeNames(context)
-        Log.e("dddddd", "getVideoList: ${volumeNames}", )
         return videoList
     }
 

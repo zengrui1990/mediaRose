@@ -62,6 +62,31 @@
       android:name="androidx.multidex.MultiDexApplication"
       tools:targetApi="29">
 
+    <activity android:name="androidx.media3.demo.sweety.MainActivity"
+      android:configChanges="keyboardHidden"
+      android:label="@string/sweety_name"
+      android:theme="@style/Theme.AppCompat"
+      android:exported="true">
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN"/>
+        <category android:name="android.intent.category.LAUNCHER"/>
+        <category android:name="android.intent.category.LEANBACK_LAUNCHER"/>
+      </intent-filter>
+      <intent-filter>
+        <action android:name="android.intent.action.VIEW"/>
+        <action android:name="androidx.media3.demo.main.action.BROWSE"/>
+        <category android:name="android.intent.category.DEFAULT"/>
+        <category android:name="android.intent.category.BROWSABLE"/>
+        <data android:scheme="http"/>
+        <data android:scheme="https"/>
+        <data android:scheme="content"/>
+        <data android:scheme="asset"/>
+        <data android:scheme="file"/>
+        <data android:host="*"/>
+        <data android:pathPattern=".*\\.exolist\\.json"/>
+      </intent-filter>
+    </activity>
+
     <activity android:name=".SampleChooserActivity"
         android:configChanges="keyboardHidden"
         android:label="@string/application_name"
